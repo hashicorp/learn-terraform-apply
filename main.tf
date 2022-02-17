@@ -28,14 +28,14 @@ resource "docker_image" "nginx" {
   keep_locally = true
 }
 
-resource "random_pet" "dog" {
+resource "random_pet" "nginx" {
   length = 2
 }
 
 resource "docker_container" "nginx" {
   count = 4
   image = docker_image.nginx.latest
-  name  = "nginx-${random_pet.dog.id}-${count.index}"
+  name  = "nginx-${random_pet.nginx.id}-${count.index}"
 
   ports {
     internal = 80
