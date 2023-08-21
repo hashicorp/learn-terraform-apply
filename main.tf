@@ -47,12 +47,3 @@ resource "aws_s3_bucket" "example" {
     Owner = "${var.project_name}-tutorial"
   }
 }
-
-resource "aws_s3_object" "example" {
-  bucket = aws_s3_bucket.example.bucket
-
-  key    = "README.md"
-  source = "./README.md"
-
-  etag = filemd5("./README.md")
-}
