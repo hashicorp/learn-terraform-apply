@@ -1,5 +1,6 @@
-## Output value definitions
+## Output values
 
-output "nginx_hosts" {
-  value = [for container in docker_container.nginx : { name : container.name, host : "${container.ports[0].ip}:${container.ports[0].external}" }]
+output "bucket_name" {
+  description = "Name of S3 bucket"
+  value       = aws_s3_bucket.example.bucket
 }
